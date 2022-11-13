@@ -4,14 +4,14 @@ const myArray = [1, 10, 3, 6, 'ArrayElement'];
  * 1. Log 3 and 6 elements from myArray to console
  * Please, use more than on solution
  */
- console.log(`3: ${myArray[2]}`);
- console.log(`6: ${myArray[5]}`);
+console.log(`3: ${myArray[2]}`);
+console.log(`6: ${myArray[5]}`);
 
 /**
  *  2. Log type of each element
  */
 
-myArray.forEach(item => {
+myArray.forEach((item) => {
     console.log(typeof item);
 });
 
@@ -20,7 +20,8 @@ myArray.forEach(item => {
  *  Should return Boolean
  */
 
-const isNumber = myArray.every(n => n === Number);
+const isNumber = myArray.every((n) => n === Number);
+
 console.log(isNumber);
 
 /**
@@ -28,7 +29,8 @@ console.log(isNumber);
  * Should return Boolean
  */
 
-const isBiggerThanFive = myArray.some(n => n > 5);
+const isBiggerThanFive = myArray.some((n) => n > 5);
+
 console.log(isBiggerThanFive);
 
 /**
@@ -36,7 +38,8 @@ console.log(isBiggerThanFive);
  * Should return another Array
  */
 
-const elementsBiggerThanFive = myArray.filter(n => n > 5);
+const elementsBiggerThanFive = myArray.filter((n) => n > 5);
+
 console.log(elementsBiggerThanFive);
 
 /**
@@ -44,14 +47,16 @@ console.log(elementsBiggerThanFive);
  * Should return another Array
  */
 
-const multiplied = myArray.map(n => n * 2);
+const multiplied = myArray.map((n) => n * 2);
+
 console.log(multiplied);
 
 /**
  * 7. Calculate array sum
  */
 
-let sum = myArray.reduce((a, b) =>  a + b);
+const sum = myArray.reduce((a, b) => a + b);
+
 console.log(sum);
 
 /**
@@ -59,7 +64,8 @@ console.log(sum);
  */
 
 const asc = myArray.sort((a, b) => b - a);
+
 console.log(asc);
 const desc = myArray.sort((a, b) => a - b);
-console.log(desc);
 
+console.log(desc);

@@ -14,7 +14,7 @@ console.log(sayWho('Yaroslav', 'Sydor'));
  */
 
 function countSum(...params) {
-    return params.reduce((a, b) =>  a + b);
+    return params.reduce((a, b) => a + b);
 }
 console.log(countSum(4, 5, 23));
 console.log(countSum(10, 50, 212, 300, 22));
@@ -36,6 +36,7 @@ console.log(countLetters('Node developer', 'd'));
 function getRandom(start, end) {
     start = Math.ceil(start);
     end = Math.floor(end);
+
     return Math.floor(Math.random() * (end - start + 1)) + start;
 }
 

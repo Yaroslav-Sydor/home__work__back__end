@@ -11,13 +11,14 @@ const invoice = {
  */
 
 console.log(`First name: ${invoice.firstName}`);
-console.log(`Last name: ${invoice['lastName']}`);
+console.log(`Last name: ${invoice.lastName}`);
 
 /**
  * 2. Log Object Keys
  */
 
 const keys = Object.keys(invoice);
+
 console.log(keys);
 
 /**
@@ -25,6 +26,7 @@ console.log(keys);
  */
 
 const values = Object.values(invoice);
+
 console.log(values);
 
 /**
@@ -32,6 +34,7 @@ console.log(values);
  */
 
 const entries = Object.entries(invoice);
+
 console.log(entries);
 
 /**
@@ -40,20 +43,21 @@ console.log(entries);
  */
 
 const copiedInvoice = JSON.parse(JSON.stringify(invoice));
-const copiedInvoiceAssign = Object.assign({}, invoice);
+const copiedInvoiceAssign = { ...invoice };
 const newInvoice = Object.create(invoice);
 
 console.log({
     copiedInvoice,
     copiedInvoiceAssign,
-    newInvoice
+    newInvoice,
 });
 
 /**
  * 6. Modify copiedInvoice amount value
  * Important: original invoice amount shouldnt be modified
  */
-const copiedInvoiceNew = Object.create(invoice)
+const copiedInvoiceNew = Object.create(invoice);
+
 copiedInvoiceNew.amount = 300;
 
 console.log({
@@ -69,4 +73,3 @@ for (const key in invoice) {
         console.log(`${key}: ${invoice[key]}`);
     }
 }
-
