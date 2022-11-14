@@ -31,7 +31,12 @@ async function create(req, res) {
 }
 async function update(req, res) {
     try {
-        const user = await UserService.update(req.body.id, req.body);
+        const user = await UserService.update(
+            req.body.id,
+            req.body.name,
+            req.body.surname,
+            req.body.email,
+        );
 
         return res.status(200).json({
             data: user,
