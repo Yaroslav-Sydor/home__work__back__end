@@ -7,7 +7,6 @@ module.exports = {
          */
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(bodyParser.json());
-
         app.use((req, res, next) => {
             res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS ');
             res.header('Access-Control-Allow-Credentials', '*');
@@ -18,6 +17,7 @@ module.exports = {
                 + ' Authorization,'
                 + ' Access-Control-Allow-Credentials',
             );
+
             next();
         });
     },

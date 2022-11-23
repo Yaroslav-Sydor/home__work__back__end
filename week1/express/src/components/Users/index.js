@@ -1,4 +1,31 @@
+const Joi = require('joi');
 const UserService = require('./service');
+
+const schema = Joi.object()
+    .keys({
+        name: Joi.string()
+            .min(3)
+            .max(40)
+            .required(),
+        surname: Joi.string()
+            .min(3)
+            .max(40)
+            .required(),
+        email: Joi.string()
+            .email()
+            .min(3)
+            .max(40)
+            .required(),
+    });
+const data = {
+    name: 'Jon',
+    surname: 'Jons',
+    email: 'jonjons@gmail.com',
+};
+
+const result = schema.validate(data);
+
+console.log(result);
 
 async function findAll(req, res) {
     try {
