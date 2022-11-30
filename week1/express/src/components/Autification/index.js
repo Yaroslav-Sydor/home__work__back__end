@@ -2,6 +2,24 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./model');
 const UserDto = require('../Users/dto');
+const UserService = require('../Users/service');
+
+async function account(req, res) {
+    try {
+        console.log(req.user);
+        const user = await UserService.findById(req.user.user_id);
+
+        if (!user) {
+            return res.json({ message: 'No user found' });
+        }
+
+        return res.status(200).json({
+            data: user,
+        });
+    } catch (error) {
+        return res.json({ error });
+    }
+}
 
 async function register(req, res) {
     try {
@@ -78,4 +96,5 @@ async function login(req, res) {
 module.exports = {
     register,
     login,
+    account,
 };

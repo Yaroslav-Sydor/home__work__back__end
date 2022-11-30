@@ -4,15 +4,10 @@ const UserComponent = require('./index');
 
 const router = Router();
 
-router.post(
-    '/login',
-    UserComponent.login,
-    auth,
-    (req, res) => {
-        res.status(200).send('Welcome 🙌 ');
-    },
-);
+router.get('/account', auth, UserComponent.account);
 
 router.post('/register', UserComponent.register);
+
+router.post('/login', UserComponent.login);
 
 module.exports = router;

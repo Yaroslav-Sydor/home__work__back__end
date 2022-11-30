@@ -7,6 +7,13 @@ async function findAll() {
     return user;
 }
 
+async function findById(id) {
+    console.log(id);
+    const user = await modelUser.findById(id);
+
+    return user;
+}
+
 async function create({ name, surname, email }) {
     const user = await modelUser.create({ name, surname, email });
 
@@ -30,4 +37,5 @@ module.exports = {
     findAll,
     update,
     deleteUser,
+    findById,
 };

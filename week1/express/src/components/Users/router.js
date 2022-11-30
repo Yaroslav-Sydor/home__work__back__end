@@ -5,6 +5,8 @@ const { validate } = require('./validationMiddleware');
 
 const router = Router();
 
+/* router.get('/account', UserComponent.findOne) */
+
 router.get('/', UserComponent.findAll);
 
 router.post(
