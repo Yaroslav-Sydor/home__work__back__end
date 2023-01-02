@@ -4,7 +4,7 @@ const http = require('http');
 // ROUTERS
 const DemoRouter = require('../components/Demo/router');
 const UserRouter = require('../components/Users/router');
-const LoginRouter = require('../components/Autification/router');
+const LoginRouter = require('../components/Auth/router');
 
 module.exports = {
     init(app) {

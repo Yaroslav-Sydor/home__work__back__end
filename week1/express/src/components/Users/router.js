@@ -1,11 +1,9 @@
 const { Router } = require('express');
 const UserComponent = require('./index');
 const validation = require('./validation');
-const { validate } = require('./validationMiddleware');
+const { validate } = require('../../config/validationMiddleware');
 
 const router = Router();
-
-/* router.get('/account', UserComponent.findOne) */
 
 router.get('/', UserComponent.findAll);
 

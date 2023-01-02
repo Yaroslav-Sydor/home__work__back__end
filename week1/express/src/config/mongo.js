@@ -1,3 +1,4 @@
+//Add events when mongo connected: 'connected', 'error', 'open'?    
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -5,17 +6,19 @@ module.exports = {
         mongoose.connect(process.env.DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            /* useCreateIndex: true,
-            useFindAndModify: false, */
+        
 
         }).then(() => {
-            console.log('Successfully connected to database');
+            mongoose.connection
+            .on('error', err => {
+              console.error(err);
+            })
+            .on('open', err => {
+              console.log(`DB connected`);
+            })            
         }).catch((error) => {
-            console.log('database connection failed. exiting now...');
-            console.error(error);
-            /*
-            process.exit(1);
-*/
+            handleError(error);
+           
         });
     },
 };

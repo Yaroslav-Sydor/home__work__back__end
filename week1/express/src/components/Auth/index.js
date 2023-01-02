@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const Joi = require('joi');
 const User = require('./model');
-const UserDto = require('../Users/dto');
 const UserService = require('../Users/service');
+const validation = require('../Users/validation');
 
 async function account(req, res) {
     try {
@@ -27,9 +28,7 @@ async function register(req, res) {
             firstName, lastName, email, password,
         } = req.body;
 
-        console.log(email, password, firstName, lastName);
         if (!(email && password && firstName && lastName)) {
-            console.log(email, password, firstName, lastName);
             res.status(400).send('All input is required');
         }
 
